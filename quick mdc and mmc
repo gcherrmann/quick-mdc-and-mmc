@@ -1,0 +1,40 @@
+n = int(input("Digite o total de números:"))
+l = []
+for numeros in range(n):
+    l.append(int(input("Digite um número:")))
+op = str(input("Digite a operação(mmc ou mdc)"))
+
+
+if op == "mmc":
+    i = 0
+    while i != n-1:
+        a1 = l[i]
+        a2 = l[i+1]
+        while 1:
+            r = a1%a2
+            if r == 0:
+                mdc = a2
+                l[i] = l[i]*l[i+1]/mdc
+                break
+            a1 = a2
+            a2 = r
+        i += 1
+    print("O mmc é %i" % l[0])
+elif op == "mdc":
+    i = 0
+    while i != n - 1:
+        a1 = l[0]
+        a2 = l[i + 1]
+        while 1:
+            r = a1 % a2
+            if r == 0:
+                l[0] = a2
+                break
+            a1 = a2
+            a2 = r
+        i += 1
+    print("O mdc é %i" % l[0])
+
+
+
+
